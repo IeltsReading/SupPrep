@@ -66,13 +66,12 @@ body {
   font-size: 22px;
 }
 
-/* IELTS-style layout */
+/* IELTS layout */
 .ielts-layout {
   display: flex;
   gap: 32px;
 }
 
-/* Passage */
 .passage {
   flex: 3;
   padding: 20px;
@@ -81,13 +80,8 @@ body {
   line-height: 1.7;
 }
 
-/* Questions */
 .questions {
   flex: 2;
-}
-
-.question h4 {
-  margin-top: 0;
 }
 
 .option {
@@ -107,19 +101,48 @@ body {
   background: #f3f3f3;
 }
 
-.option.correct {
-  background: #d4edda;
-  border-color: #6bbf73;
+/* Trust / reviews */
+.trust {
+  margin-top: 80px;
 }
 
-.option.wrong {
-  background: #f8d7da;
-  border-color: #d66;
+.trust h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.trust p {
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.review strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.review span {
+  color: #777;
+  font-size: 13px;
 }
 
 /* Footer */
 .footer {
-  margin-top: 60px;
+  margin-top: 80px;
   text-align: center;
   font-size: 13px;
   color: #777;
@@ -129,5 +152,9 @@ body {
 @media (max-width: 900px) {
   .ielts-layout {
     flex-direction: column;
+  }
+
+  .reviews {
+    grid-template-columns: 1fr;
   }
 }
