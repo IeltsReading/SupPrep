@@ -97,3 +97,13 @@ body {
     min-width: 240px;
   }
 }
+.about.hidden {
+  display: none;
+}
+
+.founder {
+  font-style: italic;
+  color: #666;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
