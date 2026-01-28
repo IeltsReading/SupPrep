@@ -23,3 +23,22 @@ document.querySelectorAll(".option").forEach(option => {
     }
   };
 });
+<script>
+  const toggleBtn = document.getElementById("toggleAbout");
+  const aboutSection = document.getElementById("about");
+
+  let open = false;
+
+  toggleBtn.addEventListener("click", () => {
+    open = !open;
+
+    if (open) {
+      aboutSection.classList.remove("hidden");
+      toggleBtn.textContent = "Hide details ↑";
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      aboutSection.classList.add("hidden");
+      toggleBtn.textContent = "See how it works ↓";
+    }
+  });
+</script>
