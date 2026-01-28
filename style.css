@@ -97,7 +97,7 @@ body {
     min-width: 240px;
   }
 }
-.about.hidden {
+.hidden {
   display: none;
 }
 
