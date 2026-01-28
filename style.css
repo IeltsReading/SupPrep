@@ -3,82 +3,117 @@ body {
   font-family: "Georgia", "Times New Roman", serif;
   background: #fafafa;
   color: #111;
+  line-height: 1.6;
 }
 
+/* ===== Main page wrapper ===== */
 .page {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 24px;
 }
 
-.container {
-  max-width: 960px;
-  margin: auto;
-  padding: 24px;
-}
-
+/* ===== Header / Branding ===== */
 .header {
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
+  margin-bottom: 48px;
 }
 
 .header h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 32px;
+  font-weight: 700;
 }
 
-.hero {
-  margin: 40px 0;
-}
-
-.hero h2 {
-  font-size: 24px;
-  margin-bottom: 8px;
-}
-
-.hero p {
+.header p {
+  margin-top: 6px;
+  font-size: 15px;
   color: #555;
 }
 
+/* ===== Hero section ===== */
+.hero {
+  margin-bottom: 48px;
+}
+
+.hero h2 {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
 .hero button {
-  margin-top: 12px;
   padding: 10px 18px;
   font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
   cursor: pointer;
 }
 
+.hero button:hover {
+  background: #333;
+}
+
+/* ===== Reading card ===== */
 .sample {
-  margin-top: 40px;
-  padding: 28px;
   background: #ffffff;
-  border-radius: 6px;
-  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
 .sample h3 {
   margin-top: 0;
+  font-size: 20px;
 }
 
+/* ===== Passage ===== */
 .passage {
-  margin-top: 16px;
-  padding: 16px;
-  background: #fafafa;
-  border-left: 4px solid #999;
+  margin: 16px 0 28px;
+  padding: 20px;
+  background: #f6f6f6;
+  border-radius: 8px;
 }
 
+.passage p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ===== Question ===== */
 .question {
   margin-top: 24px;
 }
 
+.question h4 {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.question p {
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* ===== Options ===== */
 .option {
   display: block;
-  margin: 6px 0;
-  padding: 10px;
   width: 100%;
-  cursor: pointer;
+  margin: 8px 0;
+  padding: 10px 14px;
+  border-radius: 6px;
   border: 1px solid #ccc;
   background: #fff;
+  cursor: pointer;
   text-align: left;
+  font-size: 15px;
 }
 
 .option:hover {
@@ -95,13 +130,15 @@ body {
   border-color: #d66;
 }
 
+/* ===== Footer ===== */
 .footer {
+  margin-top: 48px;
   text-align: center;
-  padding: 20px;
   font-size: 13px;
   color: #777;
 }
 
+/* ===== Utility ===== */
 .hidden {
   display: none;
 }
