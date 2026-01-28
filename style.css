@@ -1,12 +1,13 @@
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f9f9f9;
+  font-family: "Arial", "Helvetica", sans-serif;
+  background: #f4f6f8;
   color: #222;
+  line-height: 1.6;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 960px;
   margin: auto;
   padding: 24px;
 }
@@ -16,46 +17,86 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
 .hero {
   margin: 40px 0;
 }
 
+.hero h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.hero p {
+  color: #555;
+}
+
 .hero button {
-  padding: 10px 16px;
-  font-size: 16px;
+  margin-top: 12px;
+  padding: 10px 18px;
+  font-size: 15px;
   cursor: pointer;
 }
 
 .sample {
   margin-top: 40px;
-  padding: 20px;
+  padding: 28px;
   background: #ffffff;
   border-radius: 6px;
+  border: 1px solid #ddd;
 }
 
-.hidden {
-  display: none;
+.sample h3 {
+  margin-top: 0;
+}
+
+.passage {
+  margin-top: 16px;
+  padding: 16px;
+  background: #fafafa;
+  border-left: 4px solid #999;
+}
+
+.question {
+  margin-top: 24px;
 }
 
 .option {
   display: block;
-  margin: 8px 0;
-  padding: 8px;
+  margin: 6px 0;
+  padding: 10px;
   width: 100%;
   cursor: pointer;
+  border: 1px solid #ccc;
+  background: #fff;
+  text-align: left;
+}
+
+.option:hover {
+  background: #f0f0f0;
 }
 
 .option.correct {
-  background: #c8f7c5;
+  background: #d4edda;
+  border-color: #6bbf73;
 }
 
 .option.wrong {
-  background: #f7c5c5;
+  background: #f8d7da;
+  border-color: #d66;
 }
 
 .footer {
   text-align: center;
   padding: 20px;
-  font-size: 14px;
+  font-size: 13px;
   color: #777;
+}
+
+.hidden {
+  display: none;
 }
