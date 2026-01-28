@@ -7,47 +7,51 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+  <div class="page">
 
-  <header class="header">
-    <div class="container">
-      <h1>SupPrep</h1>
-      <p>IELTS Reading practice for 7.5+</p>
-    </div>
-  </header>
+    <header class="topbar">
+      <h1 class="brand">SupPrep</h1>
+      <p class="tagline">IELTS Reading practice for 7.5+</p>
+    </header>
 
-  <main class="container">
     <section class="hero">
       <h2>Your IELTS reading journey starts here</h2>
-      <p>Try a short IELTS-style reading before signing up.</p>
-      <button id="tryBtn">Try sample reading</button>
+      <p class="hero-sub">
+        Try a short IELTS-style reading before signing up.
+      </p>
+      <button class="primary-btn">Try sample reading</button>
     </section>
 
-    <section id="sample" class="sample hidden">
+    <section class="reading-card">
       <h3>Sample Reading Passage</h3>
-      <p class="passage">
-        Ants form complex societies that rely on cooperation rather than individual strength.
-        Recent studies suggest that communication through chemical signals allows colonies
-        to adapt quickly to environmental changes.
-      </p>
 
-      <div class="question">
-       <p><strong>Questions 1</strong></p>
-<p>Ant colonies depend mainly on physical strength.</p>
-<p><em>True / False / Not Given</em></p>
-
-        <button class="option" data-correct="false">True</button>
-        <button class="option" data-correct="true">False</button>
-        <button class="option" data-correct="false">Not Given</button>
+      <div class="passage">
+        <p>
+          Ants form complex societies that rely on cooperation rather than
+          individual strength. Recent studies suggest that communication
+          through chemical signals allows colonies to adapt quickly to
+          environmental changes.
+        </p>
       </div>
 
-      <p id="feedback"></p>
+      <div class="question">
+        <h4>Question 1</h4>
+        <p class="question-text">
+          Ant colonies depend mainly on physical strength.
+        </p>
+
+        <div class="options">
+          <button>True</button>
+          <button>False</button>
+          <button>Not Given</button>
+        </div>
+      </div>
     </section>
-  </main>
 
-  <footer class="footer">
-    <p>© SupPrep — IELTS-style practice (demo)</p>
-  </footer>
+    <footer class="footer">
+      © SupPrep — IELTS-style practice (demo)
+    </footer>
 
-  <script src="/script.js"></script>
+  </div>
 </body>
 </html>
