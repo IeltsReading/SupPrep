@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SupPrep – IELTS Reading</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <h1>SupPrep</h1>
+      <p>IELTS Reading practice for 7.5+</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Your IELTS reading journey starts here</h2>
+      <p>Try a short IELTS-style reading before signing up.</p>
+      <button id="tryBtn">Try sample reading</button>
+    </section>
+
+    <section id="sample" class="sample hidden">
+      <h3>Sample Reading Passage</h3>
+      <p class="passage">
+        Ants form complex societies that rely on cooperation rather than individual strength.
+        Recent studies suggest that communication through chemical signals allows colonies
+        to adapt quickly to environmental changes.
+      </p>
+
+      <div class="question">
+        <p><strong>Question:</strong> Ant colonies depend mainly on physical strength.</p>
+        <button class="option" data-correct="false">True</button>
+        <button class="option" data-correct="true">False</button>
+        <button class="option" data-correct="false">Not Given</button>
+      </div>
+
+      <p id="feedback"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© SupPrep — IELTS-style practice (demo)</p>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
