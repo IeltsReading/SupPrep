@@ -11,150 +11,89 @@ body {
   padding: 40px 24px;
 }
 
-/* Header */
-.header h1 {
-  margin-bottom: 4px;
-  font-size: 34px;
-}
-
-.header p {
-  margin-top: 0;
-  color: #555;
-}
-
-/* Hero */
-.hero {
-  margin: 48px 0;
-}
-
-.hero h2 {
-  font-size: 26px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  color: #555;
-}
-
-.hero button {
-  margin-top: 16px;
-  padding: 12px 22px;
-  font-size: 15px;
-  background: #111;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.hero button:hover {
-  background: #333;
-}
-
-/* Sample section */
-.sample {
-  margin-top: 60px;
-  padding: 32px;
-  background: #ffffff;
-  border-radius: 10px;
-  border: 1px solid #e0e0e0;
-}
-
-.sample h3 {
-  margin-top: 0;
-  margin-bottom: 24px;
-  font-size: 22px;
-}
-
-/* IELTS layout */
-.ielts-layout {
-  display: flex;
-  gap: 32px;
-}
-
-.passage {
-  flex: 3;
-  padding: 20px;
-  background: #fafafa;
-  border-radius: 8px;
-  line-height: 1.7;
-}
-
-.questions {
-  flex: 2;
-}
-
-.option {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 12px;
-  font-size: 14px;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fff;
-  text-align: left;
-}
-
-.option:hover {
-  background: #f3f3f3;
-}
-
-/* Trust / reviews */
-.trust {
+/* Reviews section */
+.reviews-section {
   margin-top: 80px;
+  overflow: hidden;
 }
 
-.trust h3 {
+.reviews-section h3 {
   font-size: 22px;
-  margin-bottom: 8px;
-}
-
-.trust p {
-  color: #555;
   margin-bottom: 24px;
 }
 
-.reviews {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+/* Rows */
+.reviews-row {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 24px;
 }
 
-.review {
+.reviews-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+}
+
+/* Cards */
+.review-card {
+  min-width: 280px;
+  padding: 18px 20px;
   background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 20px;
-  font-size: 14px;
+  border-radius: 14px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 
-.review strong {
+.review-card strong {
   display: block;
+  font-size: 15px;
+}
+
+.review-card span {
+  display: block;
+  font-size: 13px;
+  color: #555;
   margin-bottom: 6px;
 }
 
-.review span {
-  color: #777;
-  font-size: 13px;
+.review-card p {
+  font-size: 14px;
+  margin: 0;
+  color: #333;
 }
 
-/* Footer */
-.footer {
-  margin-top: 80px;
-  text-align: center;
-  font-size: 13px;
-  color: #777;
+/* Animations */
+.reviews-row.left .reviews-track {
+  animation: move-left 35s linear infinite;
+}
+
+.reviews-row.right .reviews-track {
+  animation: move-right 35s linear infinite;
+}
+
+@keyframes move-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes move-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* Mobile */
 @media (max-width: 900px) {
-  .ielts-layout {
-    flex-direction: column;
-  }
-
-  .reviews {
-    grid-template-columns: 1fr;
+  .review-card {
+    min-width: 240px;
   }
 }
