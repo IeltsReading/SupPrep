@@ -13,21 +13,21 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// 🔒 PROTECT DASHBOARD
+// 🔒 AUTH GUARD
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    // Not logged in
+    // Not logged in → kick out
     window.location.href = "signin.html";
     return;
   }
 
   if (!user.emailVerified) {
     // Logged in but not verified
-    alert("Please verify your email before accessing the dashboard.");
+    alert("Please verify your email first.");
     window.location.href = "signin.html";
     return;
   }
 
-  // ✅ User is authenticated & verified
-  console.log("✅ Access granted:", user.email);
+  // ✅ User is valid → allow dashboard
+  console.log("Access granted:", user.email);
 });
