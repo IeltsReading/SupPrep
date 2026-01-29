@@ -3,11 +3,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebas
 import {
   getAuth,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  sendEmailVerification
 } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAO48XKV067rrsTyrq1XDnBdf8R4Eoslws",
+  apiKey: "AIzaSyA048XKVO67rrsTyrq1XDnBdf8R4Eoslws",
   authDomain: "supprep-11a9b.firebaseapp.com",
   projectId: "supprep-11a9b",
   storageBucket: "supprep-11a9b.firebasestorage.app",
@@ -22,19 +23,24 @@ const auth = getAuth(app);
 const signInForm = document.getElementById("signin-form");
 
 if (signInForm) {
-  signInForm.addEventListener("submit", (e) => {
+  signInForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const email = signInForm.email.value;
     const password = signInForm.password.value;
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        window.location.href = "dashboard.html";
-      })
-      .catch(err => {
-        alert(err.message);
-      });
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+
+      if (!result.user.emailVerified) {
+        alert("Please verify your email before signing in.");
+        return;
+      }
+
+      window.location.href = "dashboard.html";
+    } catch (err) {
+      alert(err.message);
+    }
   });
 }
 
@@ -42,18 +48,22 @@ if (signInForm) {
 const signUpForm = document.getElementById("signup-form");
 
 if (signUpForm) {
-  signUpForm.addEventListener("submit", (e) => {
+  signUpForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const email = signUpForm.email.value;
     const password = signUpForm.password.value;
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        window.location.href = "dashboard.html";
-      })
-      .catch(err => {
-        alert(err.message);
-      });
+    try {
+      const result = await createUserWithEmailAndPassword(auth, email, password);
+
+      await sendEmailVerification(result.user);
+
+      alert("Verification email sent. Please check your inbox.");
+
+      window.location.href = "signin.html";
+    } catch (err) {
+      alert(err.message);
+    }
   });
 }
