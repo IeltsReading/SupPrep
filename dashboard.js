@@ -1,34 +1,27 @@
-console.log("🔥 dashboard.js IS RUNNING");
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAO48XKV067rrsTyrq1XDnBdf8R4Eoslws",
-  authDomain: "supprep-11a9b.firebaseapp.com",
-  projectId: "supprep-11a9b",
-  storageBucket: "supprep-11a9b.appspot.com",
-  messagingSenderId: "270248758885",
-  appId: "1:270248758885:web:b01580e26cf7edc0c5008c"
-};
+// Firebase already initialized in auth_v4.js
+const auth = getAuth();
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const userEmailEl = document.getElementById("userEmail");
+const logoutBtn = document.getElementById("logoutBtn");
 
-// 🔒 AUTH GUARD
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    // Not logged in → kick out
+    // Not signed in → kick out
     window.location.href = "signin.html";
     return;
   }
 
-  if (!user.emailVerified) {
-    // Logged in but not verified
-    alert("Please verify your email first.");
-    window.location.href = "signin.html";
-    return;
-  }
+  // Signed in → show email
+  userEmailEl.textContent = `Signed in as: ${user.email}`;
+});
 
-  // ✅ User is valid → allow dashboard
-  console.log("Access granted:", user.email);
+logoutBtn.addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    window.location.href = "signin.html";
+  } catch (err) {
+    alert(err.message);
+  }
 });
