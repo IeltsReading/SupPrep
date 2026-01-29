@@ -8,30 +8,27 @@
 <body>
 
 <div class="auth-page">
-
   <div class="auth-form">
     <h1>Create your account</h1>
 
-    <form id="signupForm">
+    <form id="signup-form">
       <label>
         Username
-        <input type="text" id="username" required />
+        <input type="text" name="username" required />
       </label>
 
       <label>
         Email
-        <input type="email" id="email" required />
+        <input type="email" name="email" required />
       </label>
 
       <label>
         Password
-        <input type="password" id="password" required />
+        <input type="password" name="password" required />
       </label>
 
       <button type="submit">Create account</button>
     </form>
-
-    <p id="message" class="auth-message"></p>
 
     <p class="auth-switch">
       Already have an account?
@@ -42,51 +39,8 @@
   <div class="auth-canvas">
     <img src="https://via.placeholder.com/600x600?text=SupPrep+Canvas">
   </div>
-
 </div>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-  import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    sendEmailVerification
-  } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
-
- const firebaseConfig = {
-  apiKey: "AIzaSyAO48XKV067rrsTyrq1XDnBdf8R4Eoslws",
-  authDomain: "supprep-11a9b.firebaseapp.com",
-  projectId: "supprep-11a9b",
-  storageBucket: "supprep-11a9b.firebasestorage.app",
-  messagingSenderId: "270248758885",
-  appId: "1:270248758885:web:b01580e26cf7edc0c5008c"
-};
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  const form = document.getElementById("signupForm");
-  const message = document.getElementById("message");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    try {
-      const userCred = await createUserWithEmailAndPassword(auth, email, password);
-      await sendEmailVerification(userCred.user);
-
-      message.textContent = "✅ Verification email sent. Check your inbox.";
-      message.style.color = "green";
-
-    } catch (err) {
-      message.textContent = err.message;
-      message.style.color = "red";
-    }
-  });
-</script>
-
+<script type="module" src="auth.js"></script>
 </body>
 </html>
