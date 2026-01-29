@@ -1,18 +1,12 @@
 import {
-  getAuth,
   onAuthStateChanged,
   signOut
-} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 
-const auth = getAuth();
+import { auth } from "./auth_v4.js";
 
 const userEmailEl = document.getElementById("userEmail");
 const logoutBtn = document.getElementById("logoutBtn");
-
-// Safety check (prevents silent crashes)
-if (!userEmailEl || !logoutBtn) {
-  console.error("Dashboard elements missing");
-}
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
