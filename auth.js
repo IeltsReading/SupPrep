@@ -1,14 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
 import {
   getAuth,
-  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   sendEmailVerification,
   updateProfile
 } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 
+// ✅ SINGLE, CORRECT CONFIG
 const firebaseConfig = {
-  apiKey: "AIzaSyA048XKVO67rrsTyrq1XDnBdf8R4Eoslws",
+  apiKey: "AIzaSyAO48XKV067rrsTyrq1XDnBdf8R4Eoslws",
   authDomain: "supprep-11a9b.firebaseapp.com",
   projectId: "supprep-11a9b",
   storageBucket: "supprep-11a9b.appspot.com",
@@ -19,7 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// ===== SIGN UP =====
+/* ================= SIGN UP ================= */
 const signUpForm = document.getElementById("signup-form");
 
 if (signUpForm) {
@@ -31,24 +32,23 @@ if (signUpForm) {
     const password = signUpForm.password.value;
 
     try {
-      const result = await createUserWithEmailAndPassword(auth, email, password);
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
 
-      await updateProfile(result.user, {
+      await updateProfile(cred.user, {
         displayName: username
       });
 
-      await sendEmailVerification(result.user);
+      await sendEmailVerification(cred.user);
 
       alert("Verification email sent. Please verify, then sign in.");
       window.location.href = "signin.html";
-
     } catch (err) {
       alert(err.message);
     }
   });
 }
 
-// ===== SIGN IN =====
+/* ================= SIGN IN ================= */
 const signInForm = document.getElementById("signin-form");
 
 if (signInForm) {
@@ -59,9 +59,9 @@ if (signInForm) {
     const password = signInForm.password.value;
 
     try {
-      const result = await signInWithEmailAndPassword(auth, email, password);
+      const cred = await signInWithEmailAndPassword(auth, email, password);
 
-      if (!result.user.emailVerified) {
+      if (!cred.user.emailVerified) {
         alert("Please verify your email first.");
         return;
       }
