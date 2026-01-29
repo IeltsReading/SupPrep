@@ -4,7 +4,8 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  sendEmailVerification
+  sendEmailVerification,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -51,11 +52,21 @@ if (signUpForm) {
   signUpForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    const username = signUpForm.username.value;
     const email = signUpForm.email.value;
     const password = signUpForm.password.value;
 
     try {
-      const result = await createUserWithEmailAndPassword(auth, email, password);
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // Decorative username
+      await updateProfile(result.user, {
+        displayName: username
+      });
 
       await sendEmailVerification(result.user);
 
