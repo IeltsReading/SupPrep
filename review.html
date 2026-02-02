@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Write a Review – SupPrep</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page auth-page">
+  <div class="auth-form">
+    <h1>Write a review</h1>
+
+    <form id="reviewForm">
+      <label>
+        Name
+        <input type="text" name="name" required />
+      </label>
+
+      <label>
+        Score increase
+        <input type="text" name="score" placeholder="7.5 → 8.5" required />
+      </label>
+
+      <label>
+        Review
+        <textarea name="review" rows="5" required></textarea>
+      </label>
+
+      <button type="submit">Submit review</button>
+    </form>
+  </div>
+</div>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("D4pWS3jvPrL8DLOzK"); // 🔴 replace
+</script>
+
+<script>
+  const form = document.getElementById("reviewForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    emailjs.send("service_75pz2k3", "template_w5fwn7f", {
+      name: form.name.value,
+      score: form.score.value,
+      review: form.review.value
+    }).then(() => {
+      window.location.href = "index.html?review=success";
+    }, (err) => {
+      alert("Failed to send review. Please try again.");
+      console.error(err);
+    });
+  });
+</script>
+
+</body>
+</html>
