@@ -194,3 +194,42 @@ body {
   font-size: 13px;
   margin: 0;
 }
+.reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.review-btn:hover {
+  opacity: 0.85;
+}
+
+/* Toast notification */
+.review-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2ecc71;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 999;
+  transition: opacity 0.3s ease;
+}
+
+.review-toast.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
