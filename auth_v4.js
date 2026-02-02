@@ -1,13 +1,13 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendEmailVerification,
   updateProfile
-} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-// ✅ SINGLE, CORRECT CONFIG
+// 🔑 Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyAO48XKV067rrsTyrq1XDnBdf8R4Eoslws",
   authDomain: "supprep-11a9b.firebaseapp.com",
@@ -17,8 +17,9 @@ const firebaseConfig = {
   appId: "1:270248758885:web:b01580e26cf7edc0c5008c"
 };
 
+// 🔥 SINGLE app + auth instance
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 
 /* ================= SIGN UP ================= */
 const signUpForm = document.getElementById("signup-form");
@@ -34,10 +35,7 @@ if (signUpForm) {
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
 
-      await updateProfile(cred.user, {
-        displayName: username
-      });
-
+      await updateProfile(cred.user, { displayName: username });
       await sendEmailVerification(cred.user);
 
       alert("Verification email sent. Please verify, then sign in.");
