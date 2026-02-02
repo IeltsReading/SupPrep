@@ -1,16 +1,16 @@
 import {
   onAuthStateChanged,
   signOut
-} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-import { auth } from "./auth_v4.js";
+import { auth } from "/SupPrep/auth_v4.js";
 
 const userEmailEl = document.getElementById("userEmail");
 const logoutBtn = document.getElementById("logoutBtn");
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    window.location.href = "signin.html";
+    window.location.replace("/SupPrep/signin.html");
     return;
   }
 
@@ -22,5 +22,5 @@ onAuthStateChanged(auth, (user) => {
 
 logoutBtn.addEventListener("click", async () => {
   await signOut(auth);
-  window.location.href = "signin.html";
+  window.location.replace("/SupPrep/signin.html");
 });
