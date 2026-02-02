@@ -147,6 +147,19 @@
 </div>
 
 <script type="module" src="/SupPrep/footer.js"></script>
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("review") === "success") {
+    const toast = document.getElementById("reviewToast");
+    toast.classList.remove("hidden");
+
+    setTimeout(() => {
+      toast.classList.add("hidden");
+      window.history.replaceState({}, document.title, "index.html");
+    }, 2000);
+  }
+</script>
+
 
 
 </body>
