@@ -1,0 +1,86 @@
+/* ================= INDEX PAGE ONLY ================= */
+
+/* Header */
+.header p {
+  color: #475569;
+  font-size: 15px;
+}
+
+/* HERO */
+.hero {
+  padding: 90px 48px;
+  margin-top: 40px;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    #eef2ff 0%,
+    #f8fafc 65%
+  );
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.06);
+}
+
+.hero h2 {
+  font-size: 38px;
+  line-height: 1.25;
+}
+
+.hero p {
+  max-width: 640px;
+  font-size: 16px;
+  color: #475569;
+}
+
+/* Buttons */
+.hero button,
+.cta button {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
+
+.hero button:hover,
+.cta button:hover {
+  background: #1d4ed8;
+}
+
+/* Secondary link */
+.secondary-link {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+/* ABOUT */
+.about {
+  margin-top: 90px;
+  padding: 0 48px;
+}
+
+.about h3 {
+  font-size: 24px;
+}
+
+/* CTA */
+.cta {
+  margin-top: 130px;
+  padding: 90px 48px;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b
+  );
+  color: white;
+}
+
+.cta p {
+  color: #cbd5f5;
+}
+
+.cta a {
+  color: #93c5fd;
+}
+
+/* Footer spacing */
+.site-footer {
+  margin-top: 100px;
+}
