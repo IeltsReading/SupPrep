@@ -32,13 +32,16 @@
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
+<!-- Footer -->
 <div class="site-footer">
   <button id="backHomeBtn">← Back to Home</button>
   <p class="copyright">
     © SupPrep — IELTS-style practice
   </p>
 </div>
+
+<!-- Auth / Redirect logic -->
+<script type="module" src="auth_v4.js"></script>
 
 <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -66,10 +69,14 @@
       alert("Failed to send review. Please try again.");
     });
   });
-</script>
 
-<!-- Auth + Back Home logic -->
-<script type="module" src="auth_v4.js"></script>
+  const backHomeBtn = document.getElementById("backHomeBtn");
+  if (backHomeBtn) {
+    backHomeBtn.onclick = () => {
+      window.location.href = "index.html";
+    };
+  }
+</script>
 
 </body>
 </html>
