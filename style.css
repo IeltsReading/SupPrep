@@ -250,3 +250,74 @@ body {
     padding: 40px;
   }
 }
+/* ================= INDEX-ONLY DECORATION ================= */
+
+/* Header polish */
+.header p {
+  color: #475569;
+  font-size: 15px;
+}
+
+/* Hero section */
+.hero {
+  padding: 80px 40px;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    #eef2ff 0%,
+    #f8fafc 60%
+  );
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+}
+
+.hero h2 {
+  font-size: 36px;
+}
+
+.hero p {
+  max-width: 620px;
+  font-size: 16px;
+  color: #475569;
+}
+
+/* Primary buttons (index only) */
+.hero button,
+.cta button {
+  background: #2563eb;
+}
+
+.hero button:hover,
+.cta button:hover {
+  background: #1d4ed8;
+}
+
+/* About section spacing */
+.about {
+  margin-top: 80px;
+  padding: 0 40px;
+}
+
+.about h3 {
+  font-size: 24px;
+}
+
+/* CTA section */
+.cta {
+  margin-top: 120px;
+  padding: 80px 40px;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b
+  );
+  color: white;
+}
+
+.cta p {
+  color: #cbd5f5;
+}
+
+.cta a {
+  color: #93c5fd;
+}
