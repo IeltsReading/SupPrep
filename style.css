@@ -1,17 +1,18 @@
+/* ================= BASE ================= */
 :root {
   --ink: #0f172a;
   --muted: #475569;
   --soft: #e2e8f0;
-  --paper: #f8fafc;
+  --paper: #fafafa;
   --accent: #2563eb;
-  --accent-soft: #dbeafe;
+  --accent-dark: #1d4ed8;
 }
 
 body {
   margin: 0;
   font-family: "Georgia", "Times New Roman", serif;
   background: linear-gradient(to bottom, #f8fafc, #ffffff);
-  color: var(--ink);
+  color: #111;
 }
 
 .page {
@@ -20,7 +21,11 @@ body {
   padding: 40px 24px;
 }
 
-/* HEADER */
+.hidden {
+  display: none;
+}
+
+/* ================= HEADER / HERO ================= */
 .header {
   margin-bottom: 80px;
 }
@@ -31,17 +36,21 @@ body {
   align-items: center;
 }
 
+.nav h1 {
+  letter-spacing: 0.3px;
+}
+
 .nav-links a {
   margin-left: 16px;
   text-decoration: none;
   color: var(--muted);
+  font-size: 14px;
 }
 
 .nav-links a:hover {
   color: var(--ink);
 }
 
-/* HERO */
 .hero {
   padding: 80px 40px;
   border-radius: 20px;
@@ -51,12 +60,13 @@ body {
 
 .hero h2 {
   font-size: 36px;
+  margin-bottom: 16px;
 }
 
 .hero p {
   max-width: 620px;
-  color: var(--muted);
   font-size: 16px;
+  color: var(--muted);
 }
 
 .hero-actions {
@@ -69,10 +79,29 @@ body {
   font-size: 14px;
 }
 
-/* ABOUT */
+/* ================= BUTTONS ================= */
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+/* ================= ABOUT ================= */
 .about {
   margin-top: 80px;
   padding: 0 40px;
+}
+
+.about h3 {
+  font-size: 24px;
 }
 
 .about p {
@@ -83,32 +112,48 @@ body {
 
 .founder {
   font-style: italic;
+  color: #666;
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
-/* REVIEWS */
+/* ================= REVIEWS ================= */
 .reviews-section {
-  margin-top: 100px;
+  margin-top: 80px;
   overflow: hidden;
+}
+
+.reviews-section h3 {
+  font-size: 22px;
+  margin-bottom: 24px;
 }
 
 .reviews-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .review-btn {
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: #111;
+  color: #fff;
   border: none;
   padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 13px;
 }
 
+.review-btn:hover {
+  opacity: 0.85;
+}
+
+/* Rows */
 .reviews-row {
-  margin-top: 24px;
+  position: relative;
+  width: 100%;
   overflow: hidden;
+  margin-bottom: 24px;
 }
 
 .reviews-track {
@@ -117,43 +162,155 @@ body {
   width: max-content;
 }
 
+/* Cards */
 .review-card {
   min-width: 280px;
   padding: 18px 20px;
-  background: white;
+  background: #ffffff;
   border-radius: 16px;
-  border: 1px solid var(--soft);
+  border: 1px solid #e2e8f0;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
 }
 
-/* CTA */
-.cta {
-  margin-top: 120px;
-  padding: 80px 40px;
-  border-radius: 20px;
+.review-card strong {
+  display: block;
+  font-size: 15px;
+}
+
+.review-card span {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.review-card p {
+  font-size: 14px;
+  margin: 0;
+  color: #333;
+}
+
+/* Animations */
+.reviews-row.left .reviews-track {
+  animation: move-left 35s linear infinite;
+}
+
+.reviews-row.right .reviews-track {
+  animation: move-right 35s linear infinite;
+}
+
+@keyframes move-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes move-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .review-card {
+    min-width: 240px;
+  }
+}
+
+/* ================= AUTH PAGES ================= */
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.auth-form {
+  width: 40%;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-form h1 {
+  font-size: 32px;
+  margin-bottom: 32px;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 6px;
+}
+
+.auth-form input {
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid var(--soft);
+  border-radius: 6px;
+}
+
+.auth-form button {
+  margin-top: 10px;
+  padding: 14px;
+  font-size: 15px;
+}
+
+.auth-switch {
+  margin-top: 24px;
+  font-size: 14px;
+}
+
+.auth-switch a {
+  margin-left: 4px;
+}
+
+/* Auth canvas (decorative) */
+.auth-canvas {
+  width: 60%;
   background: linear-gradient(135deg, #0f172a, #1e293b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
 }
 
-.cta p {
-  color: #cbd5f5;
+.auth-canvas img {
+  max-width: 80%;
+  opacity: 0.85;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 .site-footer {
-  margin-top: 80px;
+  margin-top: 60px;
   text-align: center;
-  color: var(--muted);
+  opacity: 0.7;
 }
 
 .site-footer button {
   background: none;
   border: none;
+  color: #555;
   cursor: pointer;
-  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 6px;
 }
 
-/* TOAST */
+.site-footer button:hover {
+  text-decoration: underline;
+}
+
+.site-footer p {
+  font-size: 13px;
+  margin: 0;
+}
+
+/* ================= TOAST ================= */
 .review-toast {
   position: fixed;
   top: 20px;
@@ -165,8 +322,10 @@ body {
   border-radius: 8px;
   font-size: 14px;
   z-index: 999;
+  transition: opacity 0.3s ease;
 }
 
-.hidden {
-  display: none;
+.review-toast.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
