@@ -1,17 +1,8 @@
-/* ================= BASE ================= */
-:root {
-  --ink: #0f172a;
-  --muted: #475569;
-  --soft: #e2e8f0;
-  --paper: #fafafa;
-  --accent: #2563eb;
-  --accent-dark: #1d4ed8;
-}
-
+/* ===== Global ===== */
 body {
   margin: 0;
   font-family: "Georgia", "Times New Roman", serif;
-  background: linear-gradient(to bottom, #f8fafc, #ffffff);
+  background: #fafafa;
   color: #111;
 }
 
@@ -25,113 +16,21 @@ body {
   display: none;
 }
 
-/* ================= HEADER / HERO ================= */
-.header {
-  margin-bottom: 80px;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav h1 {
-  letter-spacing: 0.3px;
-}
-
-.nav-links a {
-  margin-left: 16px;
-  text-decoration: none;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.nav-links a:hover {
-  color: var(--ink);
-}
-
-.hero {
-  padding: 80px 40px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
-}
-
-.hero h2 {
-  font-size: 36px;
-  margin-bottom: 16px;
-}
-
-.hero p {
-  max-width: 620px;
-  font-size: 16px;
-  color: var(--muted);
-}
-
-.hero-actions {
-  margin-top: 24px;
-}
-
-.secondary-link {
-  margin-left: 20px;
-  color: var(--accent);
-  font-size: 14px;
-}
-
-/* ================= BUTTONS ================= */
-button {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 14px 20px;
-  border-radius: 10px;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: var(--accent-dark);
-}
-
-/* ================= ABOUT ================= */
-.about {
-  margin-top: 80px;
-  padding: 0 40px;
-}
-
-.about h3 {
-  font-size: 24px;
-}
-
-.about p {
-  max-width: 720px;
-  line-height: 1.7;
-  color: var(--muted);
-}
-
-.founder {
-  font-style: italic;
-  color: #666;
-  margin-top: -10px;
-  margin-bottom: 20px;
-}
-
-/* ================= REVIEWS ================= */
+/* ===== Reviews Section ===== */
 .reviews-section {
   margin-top: 80px;
   overflow: hidden;
-}
-
-.reviews-section h3 {
-  font-size: 22px;
-  margin-bottom: 24px;
 }
 
 .reviews-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.reviews-section h3 {
+  font-size: 22px;
+  margin-bottom: 24px;
 }
 
 .review-btn {
@@ -148,7 +47,7 @@ button:hover {
   opacity: 0.85;
 }
 
-/* Rows */
+/* ===== Review Rows (Flow Effect) ===== */
 .reviews-row {
   position: relative;
   width: 100%;
@@ -162,14 +61,14 @@ button:hover {
   width: max-content;
 }
 
-/* Cards */
+/* ===== Review Cards ===== */
 .review-card {
   min-width: 280px;
   padding: 18px 20px;
   background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  border-radius: 14px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 .review-card strong {
@@ -190,7 +89,7 @@ button:hover {
   color: #333;
 }
 
-/* Animations */
+/* ===== Review Animations ===== */
 .reviews-row.left .reviews-track {
   animation: move-left 35s linear infinite;
 }
@@ -209,19 +108,21 @@ button:hover {
   to { transform: translateX(0); }
 }
 
-/* Mobile */
-@media (max-width: 900px) {
-  .review-card {
-    min-width: 240px;
-  }
+/* ===== Founder ===== */
+.founder {
+  font-style: italic;
+  color: #666;
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
-/* ================= AUTH PAGES ================= */
+/* ===== Auth Pages (signin.html / auth.html) ===== */
 .auth-page {
   display: flex;
   min-height: 100vh;
 }
 
+/* Left form */
 .auth-form {
   width: 40%;
   padding: 80px;
@@ -248,19 +149,20 @@ button:hover {
   gap: 6px;
 }
 
-.auth-form input {
+.auth-form input,
+.auth-form textarea {
   padding: 12px;
   font-size: 15px;
-  border: 1px solid var(--soft);
-  border-radius: 6px;
 }
 
 .auth-form button {
   margin-top: 10px;
   padding: 14px;
   font-size: 15px;
+  cursor: pointer;
 }
 
+/* Switch login/register */
 .auth-switch {
   margin-top: 24px;
   font-size: 14px;
@@ -270,22 +172,21 @@ button:hover {
   margin-left: 4px;
 }
 
-/* Auth canvas (decorative) */
+/* ===== Auth Canvas (Decoration Image) ===== */
 .auth-canvas {
   width: 60%;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background: #f5f5f5;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
 }
 
 .auth-canvas img {
   max-width: 80%;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
-/* ================= FOOTER ================= */
+/* ===== Footer ===== */
 .site-footer {
   margin-top: 60px;
   text-align: center;
@@ -310,13 +211,13 @@ button:hover {
   margin: 0;
 }
 
-/* ================= TOAST ================= */
+/* ===== Toast Notification ===== */
 .review-toast {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: #16a34a;
+  background: #2ecc71;
   color: white;
   padding: 10px 18px;
   border-radius: 8px;
@@ -328,4 +229,24 @@ button:hover {
 .review-toast.hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 900px) {
+  .review-card {
+    min-width: 240px;
+  }
+
+  .auth-page {
+    flex-direction: column;
+  }
+
+  .auth-form,
+  .auth-canvas {
+    width: 100%;
+  }
+
+  .auth-form {
+    padding: 40px;
+  }
 }
