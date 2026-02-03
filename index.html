@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="reviewToast" class="review-toast hidden">
+
+<div id="reviewToast" class="review-toast hidden">
   Thanks for your review!
 </div>
-
 
 <div class="page">
 
@@ -44,7 +44,7 @@
     </div>
   </section>
 
-  <!-- ABOUT / EXPLANATION -->
+  <!-- ABOUT -->
   <section class="about hidden" id="about">
     <h3>What is SupPrep?</h3>
 
@@ -71,13 +71,12 @@
 
   <!-- REVIEWS -->
   <section class="reviews-section">
-  <div class="reviews-header">
-  <h3>What early users say</h3>
-  <button class="review-btn" onclick="window.location.href='review.html'">
-    Write a review
-  </button>
-</div>
-
+    <div class="reviews-header">
+      <h3>What early users say</h3>
+      <button class="review-btn" onclick="window.location.href='review.html'">
+        Write a review
+      </button>
+    </div>
 
     <div class="reviews-row left">
       <div class="reviews-track">
@@ -98,7 +97,7 @@
     </div>
   </section>
 
-  <!-- FINAL CTA -->
+  <!-- CTA -->
   <section class="cta">
     <h3>Ready to practice seriously?</h3>
     <p>
@@ -115,31 +114,10 @@
     </div>
   </section>
 
-  
-
 </div>
 
-<!-- ABOUT TOGGLE SCRIPT -->
-<script>
-  const toggleBtn = document.getElementById("toggleAbout");
-  const aboutSection = document.getElementById("about");
-
-  toggleBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const hidden = aboutSection.classList.contains("hidden");
-
-    if (hidden) {
-      aboutSection.classList.remove("hidden");
-      toggleBtn.textContent = "Hide details ↑";
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    } else {
-      aboutSection.classList.add("hidden");
-      toggleBtn.textContent = "See how it works ↓";
-    }
-  });
-</script>
-  <div class="site-footer">
+<!-- FOOTER (unchanged location) -->
+<div class="site-footer">
   <button id="backHomeBtn">← Back to Home</button>
   <p class="copyright">
     © SupPrep — IELTS-style practice
@@ -147,21 +125,27 @@
 </div>
 
 <script type="module" src="/SupPrep/footer.js"></script>
-  <script>
+<script type="module" src="/SupPrep/redirectIfLoggedIn.js"></script>
+
+<script>
+  const toggleBtn = document.getElementById("toggleAbout");
+  const aboutSection = document.getElementById("about");
+
+  toggleBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const hidden = aboutSection.classList.contains("hidden");
+    aboutSection.classList.toggle("hidden");
+    toggleBtn.textContent = hidden ? "Hide details ↑" : "See how it works ↓";
+    if (hidden) aboutSection.scrollIntoView({ behavior: "smooth" });
+  });
+
   const params = new URLSearchParams(window.location.search);
   if (params.get("review") === "success") {
     const toast = document.getElementById("reviewToast");
     toast.classList.remove("hidden");
-
-    setTimeout(() => {
-      toast.classList.add("hidden");
-      window.history.replaceState({}, document.title, "index.html");
-    }, 2000);
+    setTimeout(() => toast.classList.add("hidden"), 2000);
   }
 </script>
 
-
-
 </body>
 </html>
-<script type="module" src="/SupPrep/redirectIfLoggedIn.js"></script>
